@@ -15,29 +15,37 @@ function checkWinner(board) {
         combo.every(index => board[index] === currentPlayer.marker))
 }
 
-function playerMove() {
-    let gameOver = false
-    while (!gameOver) {
-        if (index >= 0 && index < 9) {
-            board[index] = currentPlayer.marker
-        } else {
-            alert("0 to 8 only")
-        }
+// function playerMove() {
+//     let gameOver = false
+//     let index = 0
+//     while (!gameOver) {
+//         if (index >= 0 && index < 9) {
+//             board[index] = currentPlayer.marker
+//         } else {
+//             alert("0 to 8 only")
+//         }
 
-        if (board.every(index => index !== "")) {
-            alert("Marker is exist")
-        }
+//         if (board.every(index => index !== "")) {
+//             alert("Marker is exist")
+//         }
 
-        if (checkWinner(board)) {
-            console.log(`${currentPlayer.name} wins`)
-            gameOver = true
-        } else if (board.every(cell => cell !== "")) {
-            console.log("Draw")
-            gameOver = true
-        } else {
-            currentPlayer = currentPlayer === player1 ? player2 : player1
-        }
-    }
-}
+//         if (checkWinner(board)) {
+//             console.log(`${currentPlayer.name} wins`)
+//             gameOver = true
+//         } else if (board.every(cell => cell !== "")) {
+//             console.log("Draw")
+//             gameOver = true
+//         } else {
+//             currentPlayer = currentPlayer === player1 ? player2 : player1
+//         }
+//     }
+// }
 
-playerMove()
+// playerMove()
+
+const cells = document.querySelectorAll(".cell")
+cells.forEach((cell) => {
+    cell.addEventListener("click", () => {
+        alert("Hi")
+    })
+})
