@@ -20,31 +20,31 @@ function checkWinner(board) {
         combo.every(index => board[index] === currentPlayer.marker))
 }
 
-function playMove(index) {
-    if (board[index] !== "") {
-        return;
-    }
+function playerMove() {
+    let isWinner = false
+    let isDraw = false
 
-    board[index] = currentPlayer.marker
+    while (!isWinner || !isDraw) {
+        let index = prompt(`${currentPlayer.name}'s index: `)
+        board[index] = currentPlayer.marker
 
-    if (checkWinner(board)) {
-        console.log(`${currentPlayer.name} wins`)
-    } else if (board.every(cell => cell !== "")) {
-        console.log("Draw")
-    } else {
-        currentPlayer = currentPlayer === player1 ? player2 : player1
+        if (checkWinner(board)) {
+            console.log(`${currentPlayer.name} wins`)
+            isWinner = true
+            break
+        } else if (board.every(cell => cell !== "")) {
+            console.log("Draw")
+            isDraw = true
+            break
+        } else {
+            currentPlayer = currentPlayer === player1 ? player2 : player1
+        }
     }
 }
 
-playMove(0)
-playMove(1)
-playMove(2)
-playMove(3)
-playMove(4)
-playMove(5)
-playMove(6)
-playMove(7)
-playMove(8)
+playerMove()
+
+console.log(board)
 
 console.log(board[0] + " " + board[1] + " " + board[2])
 console.log(board[3] + " " + board[4] + " " + board[5])
