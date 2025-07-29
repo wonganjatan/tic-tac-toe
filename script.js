@@ -15,7 +15,6 @@ function playMove(index) {
     }
 
     board[index] = currentPlayer.marker
-    console.log(board)
 
     currentPlayer = currentPlayer === player1 ? player2 : player1
 }
@@ -29,3 +28,7 @@ playMove(5)
 playMove(6)
 playMove(7)
 playMove(8)
+
+console.log(board[0] + " " + board[1] + " " + board[2])
+console.log(board[3] + " " + board[4] + " " + board[5])
+console.log(board[6] + " " + board[7] + " " + board[8])
