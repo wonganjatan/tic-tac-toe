@@ -1,13 +1,8 @@
 const board = ["", "", "", "", "", "", "", "", ""]
 
-console.log(board)
-
 const player1 = { name: "Player 1", marker: "X"}
 const player2 = { name: "Player 2", marker: "O"}
 let currentPlayer = player1
-
-console.log(player1)
-console.log(player2)
 
 function checkWinner(board) {
     const winCombos = [
@@ -21,21 +16,24 @@ function checkWinner(board) {
 }
 
 function playerMove() {
-    let isWinner = false
-    let isDraw = false
+    let gameOver = false
+    while (!gameOver) {
+        if (index >= 0 && index < 9) {
+            board[index] = currentPlayer.marker
+        } else {
+            alert("0 to 8 only")
+        }
 
-    while (!isWinner || !isDraw) {
-        let index = prompt(`${currentPlayer.name}'s index: `)
-        board[index] = currentPlayer.marker
+        if (board.every(index => index !== "")) {
+            alert("Marker is exist")
+        }
 
         if (checkWinner(board)) {
             console.log(`${currentPlayer.name} wins`)
-            isWinner = true
-            break
+            gameOver = true
         } else if (board.every(cell => cell !== "")) {
             console.log("Draw")
-            isDraw = true
-            break
+            gameOver = true
         } else {
             currentPlayer = currentPlayer === player1 ? player2 : player1
         }
@@ -43,9 +41,3 @@ function playerMove() {
 }
 
 playerMove()
-
-console.log(board)
-
-console.log(board[0] + " " + board[1] + " " + board[2])
-console.log(board[3] + " " + board[4] + " " + board[5])
-console.log(board[6] + " " + board[7] + " " + board[8])
