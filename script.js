@@ -4,6 +4,7 @@ let gameOver = false
 const player1 = { name: "Player 1", marker: "X"}
 const player2 = { name: "Player 2", marker: "O"}
 let currentPlayer = player1
+alert(`${currentPlayer.name} turn`)
 
 function checkWinner(board) {
     const winCombos = [
@@ -40,6 +41,7 @@ cells.forEach((cell, index) => {
             }
 
             currentPlayer = currentPlayer === player1 ? player2 : player1
+            alert(`${currentPlayer.name} turn`)
             console.log(board)
         } else {
             alert("Error: cell is occupied")
