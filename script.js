@@ -49,4 +49,9 @@ cells.forEach((cell, index) => {
     })
 })
 
+const resetButton = document.querySelector(".reset-button")
+resetButton.addEventListener("click", () => {
+    location.reload()
+})
+
 console.log(board)
