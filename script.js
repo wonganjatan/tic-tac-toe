@@ -21,13 +21,16 @@ cells.forEach((cell, index) => {
         if (cell.textContent == "") {
             cell.textContent = currentPlayer.marker
             board[index] = currentPlayer.marker
+
+            if (checkWinner(board)) {
+                alert(`${currentPlayer.name} wins`)
+            }
+
             currentPlayer = currentPlayer === player1 ? player2 : player1
             console.log(board)
         } else {
             alert("Error: cell is occupied")
         }
-
-        // checkWinner();
     })
 })
 
