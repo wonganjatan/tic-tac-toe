@@ -1,4 +1,5 @@
 const board = ["", "", "", "", "", "", "", "", ""]
+let gameOver = false
 
 const player1 = { name: "Player 1", marker: "X"}
 const player2 = { name: "Player 2", marker: "O"}
@@ -18,12 +19,24 @@ function checkWinner(board) {
 const cells = document.querySelectorAll(".cell")
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
+        if (gameOver) {
+            return
+        }
+
         if (cell.textContent == "") {
             cell.textContent = currentPlayer.marker
             board[index] = currentPlayer.marker
 
             if (checkWinner(board)) {
                 alert(`${currentPlayer.name} wins`)
+                gameOver = true
+                return
+            }
+
+            if (board.every(cell => cell !== "")) {
+                alert("Draw")
+                gameOver = true
+                return
             }
 
             currentPlayer = currentPlayer === player1 ? player2 : player1
