@@ -46,6 +46,11 @@ function checkWinner(board) {
 const cells = document.querySelectorAll(".cell")
 cells.forEach((cell) => {
     cell.addEventListener("click", () => {
-        alert("Hi")
+        if (cell.textContent == "") {
+            cell.textContent = currentPlayer.marker
+            currentPlayer = currentPlayer === player1 ? player2 : player1
+        } else {
+            alert("hello")
+        }
     })
 })
