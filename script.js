@@ -50,7 +50,7 @@ cells.forEach((cell) => {
             cell.textContent = currentPlayer.marker
             currentPlayer = currentPlayer === player1 ? player2 : player1
         } else {
-            alert("hello")
+            alert("Error: cell is occupied")
         }
     })
 })
